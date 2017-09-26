@@ -11,6 +11,17 @@ public class MainActivity extends AppCompatActivity {
     private GridLayout mGridLayout;
     private int index;
 
+    private View.OnLongClickListener olcl=new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+        //长按时，执行拖拽操作，显示出阴影
+            v.startDrag(null,new View.DragShadowBuilder(v),null,0);//已过期
+            //1,data 2,shadowBuilder 3,myLocalstate 4,flags
+           //v.startDragAndDrop(null,new View.DragShadowBuilder(v),null,0);
+            return false;
+        }
+    };
+
     //ctrl+alt+f快熟生成变量
 
 
@@ -41,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
         //设置宽高
         textView.setLayoutParams(layoutParams);
 
-
         index++;
+
+        //设置长按点击事件
+        textView.setOnLongClickListener(olcl);
 
         mGridLayout.addView(textView,0);
         
