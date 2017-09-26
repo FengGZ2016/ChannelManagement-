@@ -33,10 +33,13 @@ public class MainActivity extends AppCompatActivity {
             dragedView=v;
 
 
-        //长按时，执行拖拽操作，显示出阴影
+            //长按时，执行拖拽操作，显示出阴影
             v.startDrag(null,new View.DragShadowBuilder(v),null,0);//已过期
             //1,data 2,shadowBuilder 3,myLocalstate 4,flags
            //v.startDragAndDrop(null,new View.DragShadowBuilder(v),null,0);
+
+            //text view被拖拽时设置不可用
+            v.setEnabled(false);
             return false;
         }
     };
@@ -78,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
                         //然后将被拖拽的视图添加到进入的子控件的索引处
                         mGridLayout.addView(dragedView,touchIndex);
 
+                    }
+                    break;
+
+                case DragEvent.ACTION_DRAG_ENDED:
+                    //拖拽事件结束后，让被拖拽的view设置为可用，否则背景变红，并且长按事件会失效
+                    if (dragedView!=null){
+                        dragedView.setEnabled(true);
                     }
                     break;
             }
@@ -174,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(index+"");
         //设置背景
-        textView.setBackgroundResource(R.drawable.shape_tv_normal);
+        textView.setBackgroundResource(R.drawable.selector_tv);
         //文字居中
         textView.setGravity(Gravity.CENTER);
         GridLayout.LayoutParams layoutParams=new GridLayout.LayoutParams();
