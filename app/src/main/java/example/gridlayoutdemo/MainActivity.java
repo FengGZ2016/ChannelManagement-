@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 长按阴影显示后，实时获取触摸点（x,y），
  * 在移动时，实时判断触摸点是否进入了某个子控件范围内
@@ -174,7 +177,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mGridLayout = (GridLayout) findViewById(R.id.grid_layout);
 
+        //获取自定义的控件
         mDragedGridLayout = (DragedGridLayout) findViewById(R.id.draged_grid_layout);
+        //定义出频道数据
+        List<String> titles=new ArrayList<>();
+        //快速复制 CTRL+D
+        titles.add("上海站");
+        titles.add("魂山南站");
+        titles.add("苏州站");
+        titles.add("无锡站");
+        titles.add("常州站");
+        titles.add("丹阳站");
+        titles.add("镇江站");
+        titles.add("南京南站");
+
+        //设置允许拖拽
+        mDragedGridLayout.setAlLowDrag(true);
+        //设置标题数据集合
+        mDragedGridLayout.setItems(titles);
+
 
         //监听拖拽事件
         mGridLayout.setOnDragListener(odl);
