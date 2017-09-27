@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG="MainActivity";
 
     private View dragedView;
+    private DragedGridLayout mDragedGridLayout;
     /*
         * 长按监听
         * */
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
 
 
     /**
@@ -171,6 +173,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mGridLayout = (GridLayout) findViewById(R.id.grid_layout);
+
+        mDragedGridLayout = (DragedGridLayout) findViewById(R.id.draged_grid_layout);
 
         //监听拖拽事件
         mGridLayout.setOnDragListener(odl);

@@ -15,11 +15,19 @@
        />
 
     <GridLayout
+        android:visibility="gone"
         android:columnCount="4"
         android:animateLayoutChanges="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/grid_layout"
         ></GridLayout>
+
+    <example.gridlayoutdemo.DragedGridLayout
+        android:id="@+id/draged_grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </example.gridlayoutdemo.DragedGridLayout>
 
 </LinearLayout>
