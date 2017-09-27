@@ -30,4 +30,19 @@
 
     </example.gridlayoutdemo.DragedGridLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#6000"
+        android:gravity="center"
+        android:text="点击选择频道"
+        />
+
+    <example.gridlayoutdemo.DragedGridLayout
+        android:id="@+id/hide_draged_grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </example.gridlayoutdemo.DragedGridLayout>
 </LinearLayout>

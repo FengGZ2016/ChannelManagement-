@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
-
+    private DragedGridLayout mHideDragedGridLayout;
 
 
     /**
@@ -196,6 +196,22 @@ public class MainActivity extends AppCompatActivity {
         //设置标题数据集合
         mDragedGridLayout.setItems(titles);
 
+        mHideDragedGridLayout = (DragedGridLayout) findViewById(R.id.hide_draged_grid_layout);
+        //定义出频道数据
+        List<String> titles2=new ArrayList<>();
+        //快速复制 CTRL+D
+        titles2.add("上海站");
+        titles2.add("魂山南站");
+        titles2.add("苏州站");
+        titles2.add("无锡站");
+        titles2.add("常州站");
+        titles2.add("丹阳站");
+        titles2.add("镇江站");
+        titles2.add("南京南站");
+        //设置不允许拖拽
+        mHideDragedGridLayout.setAlLowDrag(false);
+        //设置标题数据集合
+        mHideDragedGridLayout.setItems(titles2);
 
         //监听拖拽事件
         mGridLayout.setOnDragListener(odl);
